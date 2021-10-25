@@ -1,6 +1,5 @@
 package model
 
-// C'est trop comme json ouff!!!!!
 
 type Countries struct {
   Name countrynameElements `json:"name"`
