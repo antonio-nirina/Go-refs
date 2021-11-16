@@ -1,4 +1,4 @@
-### Golang test of api with Gorrilla
+### Golang API with Gorrilla
 
 ##### Run project:
 - git clone 
