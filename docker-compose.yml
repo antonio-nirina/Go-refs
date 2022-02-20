@@ -2,9 +2,26 @@ version: "3.8"
 
 services:
   api:
-    container_name: server_api
+    container_name: server_api_refs
     build: ./server
     volumes:
       - ./server/:/server
+    depends_on:
+      - redis_server_ref
+    #  - rabbit_mq
     ports:
       - 8080:8080
+  redis_server_ref:
+    image: redis:6.2-alpine
+    volumes:
+      - ./conf/redis/redis.conf:/server/local/etc/redis/redis.conf
+    ports:
+      - 6379:6379
+ # rabbit_mq:
+  #  image: rabbitmq:3-alpine
+  #  environment:
+  #    - RABBITMQ_DEFAULT_USER=user1
+  #    - RABBITMQ_DEFAULT_PASS=root
+  #  ports:
+  #    - '5672:5672'
+  #    - '15672:15672' 
