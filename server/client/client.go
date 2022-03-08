@@ -11,10 +11,8 @@ import (
 
 type Client struct {
 	hub *hub.Hub
-
 	// The websocket connection.
 	conn *websocket.Conn
-
 	// Buffered channel of outbound messages.
 	send chan []byte
 }
